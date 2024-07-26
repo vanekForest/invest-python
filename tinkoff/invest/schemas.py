@@ -374,22 +374,22 @@ class Quotation(_grpc_helpers.Message, SupportsAbs):
 
     def __lt__(self, other: "Quotation") -> bool:
         return self.units < other.units or (
-            self.units == other.units and self.nano < other.nano
+                self.units == other.units and self.nano < other.nano
         )
 
     def __le__(self, other: "Quotation") -> bool:
         return self.units < other.units or (
-            self.units == other.units and self.nano <= other.nano
+                self.units == other.units and self.nano <= other.nano
         )
 
     def __gt__(self, other: "Quotation") -> bool:
         return self.units > other.units or (
-            self.units == other.units and self.nano > other.nano
+                self.units == other.units and self.nano > other.nano
         )
 
     def __ge__(self, other: "Quotation") -> bool:
         return self.units > other.units or (
-            self.units == other.units and self.nano >= other.nano
+                self.units == other.units and self.nano >= other.nano
         )
 
     def __abs__(self) -> "Quotation":
@@ -1879,6 +1879,7 @@ class OrderStage(_grpc_helpers.Message):
     trade_id: str = _grpc_helpers.string_field(3)
 
 
+@dataclass(eq=False, repr=True)
 class ReplaceOrderRequest(_grpc_helpers.Message):
     account_id: str = _grpc_helpers.string_field(1)
     order_id: str = _grpc_helpers.string_field(6)
@@ -2157,7 +2158,8 @@ class PositionsOptions(_grpc_helpers.Message):
 
 @dataclass(eq=False, repr=True)
 class GetDividendsForeignIssuerRequest(_grpc_helpers.Message):
-    generate_div_foreign_issuer_report: "GenerateDividendsForeignIssuerReportRequest" = _grpc_helpers.message_field(  # noqa:E501 # pylint:disable=line-too-long
+    generate_div_foreign_issuer_report: "GenerateDividendsForeignIssuerReportRequest" = _grpc_helpers.message_field(
+        # noqa:E501 # pylint:disable=line-too-long
         1, group="payload"
     )
     get_div_foreign_issuer_report: "GetDividendsForeignIssuerReportRequest" = (
@@ -2167,7 +2169,8 @@ class GetDividendsForeignIssuerRequest(_grpc_helpers.Message):
 
 @dataclass(eq=False, repr=True)
 class GetDividendsForeignIssuerResponse(_grpc_helpers.Message):
-    generate_div_foreign_issuer_report_response: "GenerateDividendsForeignIssuerReportResponse" = _grpc_helpers.message_field(  # noqa:E501 # pylint:disable=line-too-long
+    generate_div_foreign_issuer_report_response: "GenerateDividendsForeignIssuerReportResponse" = _grpc_helpers.message_field(
+        # noqa:E501 # pylint:disable=line-too-long
         1, group="payload"
     )
     div_foreign_issuer_report: "GetDividendsForeignIssuerReportResponse" = (
